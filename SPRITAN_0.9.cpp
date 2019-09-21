@@ -12,9 +12,11 @@ void tictactoe();                                                               
 int checkwin();                                                                 //game1
 void board();                                                                   //game1
 void highlow();
-void extra(char Q[]);   //memory fuctionality
+void extra(char Q[]);                                                           //memory fuctionality
 void singsong();
 void sudoku();
+void webser(char ip[]);
+void start();
 struct resource
     {
 	    char que[80];
@@ -22,18 +24,10 @@ struct resource
     }stud1;
 int main()
     {
-        system("clear");
         char input[60],tinput[60];
         char ch;
         int i=0,randam=1,flag=0;
-        cout << "\t\t###### ###### ###### ###### ######   ###   ##    ##\n";
-        cout << "\t\t##     ##  ## ##  ##   ##     ##    ## ##  ###   ##\n";
-        cout << "\t\t###### ###### ######   ##     ##   ####### ## ## ##\n";
-        cout << "\t\t    ## ##     ## ##    ##     ##   ##   ## ##   ###\n";
-        cout << "\t\t###### ##     ##  ## ######   ##   ##   ## ##    ##\n";
-        cout << "\nHello, This is SPRITAN made by Proyash" << endl ;
-        cout << "Feel free to say hi." << endl ;
-        cout << "-------------------------------------------------------------------------------------------------------------------------------\n";
+        start();
         while(input!="exit")
             {
             flag=0;
@@ -67,7 +61,6 @@ int main()
                             }
                             else
                                 cout<<"\nSPRITAN => Wrong option!! enter the option again\n";
-                            cin.get();
                         }
                 }
             if((!strcmp(tinput,"who are you?"))||(!strcmp(tinput,"what are you?"))
@@ -167,7 +160,7 @@ int main()
                   sudoku();
                   cout<<endl;
                   flag++;
-                }                 
+                }
             if (!strcmp(tinput,"play high-low")||!strcmp(tinput,"play highlow")
                 ||!strcmp(tinput,"let's play high-low")||!strcmp(tinput,"let's play highlow"))
                 {
@@ -201,16 +194,8 @@ int main()
                 ||!strcmp(tinput,"open firefox")||!strcmp(tinput,"open firefox"))
                 {
                     system("firefox");
-                    system("clear");
-                    cout << "\t\t\t\t###### ###### ###### ###### ######   ###   ##    ##\n";
-                    cout << "\t\t\t\t##     ##  ## ##  ##   ##     ##    ## ##  ###   ##\n";
-                    cout << "\t\t\t\t###### ###### ######   ##     ##   ####### ## ## ##\n";
-                    cout << "\t\t\t\t    ## ##     ## ##    ##     ##   ##   ## ##   ###\n";
-                    cout << "\t\t\t\t###### ##     ##  ## ######   ##   ##   ## ##    ##\n";
-                    cout << "\nHello, This is SPRITAN made by Proyash" << endl ;
-                    cout << "Feel free to say hi." << endl ;
-                    cout << "-------------------------------------------------------------------------------------------------------------------------------\n";
-                    cout<<"\nSPRITAN => Brower(firefox) is closed.";
+                    start();
+                    cout<<"\nSPRITAN => Brower(firefox) is closed.\n";
                     flag++;
                 }
             if(flag==0)
@@ -221,14 +206,26 @@ int main()
             }
     return 0;
     }
-    void telljoke(char ar[])
+void start()
+    {
+   system("clear");
+   cout << "\t\t\t\t###### ###### ###### ###### ######   ###   ##    ##\n";
+   cout << "\t\t\t\t##     ##  ## ##  ##   ##     ##    ## ##  ###   ##\n";
+   cout << "\t\t\t\t###### ###### ######   ##     ##   ####### ## ## ##\n";
+   cout << "\t\t\t\t    ## ##     ## ##    ##     ##   ##   ## ##   ###\n";
+   cout << "\t\t\t\t###### ##     ##  ## ######   ##   ##   ## ##    ##\n";
+   cout << "\nHello, This is SPRITAN made by Proyash" << endl ;
+   cout << "Feel free to say hi." << endl ;
+   cout << "-------------------------------------------------------------------------------------\n";
+    }
+void telljoke(char ar[])
     {
        int num=0;
        num=rand()%3;
        cout<<"\nSPRITAN => ";
        switch(num)
         {
-            case 0: {
+            case 0:{
                     cout<<"Teacher      : 'Anyone who thinks he's stupid may stand up!'\
                     \n\t\t   *Nobody stands up*\
                     \n\t   Teacher      : 'Im sure there are some stupid students over here!!'\
@@ -237,7 +234,7 @@ int main()
                     \n\t   Little Johnny: 'No... i just feel bad that you're standing alone...'";
                     break;
                   }
-            case 1: {
+            case 1:{
                     cout<<"Three drunken guys entered a taxi. The taxi driver knew that they\n";
                     cout<<"\t   were drunk so he started the engine and turned it off again. Then\n";
                     cout<<"\t   said,  'We have reached your destination' .  The 1st guy gave him \n";
@@ -262,70 +259,75 @@ int main()
                   }
         }
     }
-    void tictactoe()
+void tictactoe()
     {
         cout<<"\nSPRITAN => ";
-        cout<<"You may play tic-tac-toe PvP...\n\tShall i launch tic-tac-toe(y/n)?\n";
-        cout<<"\nOPTION  => ";
-        char ch='y';
-        cin>>ch;
-        while(ch=='Y'||ch=='y')
+        cout<<"You may play tic-tac-toe PvP...\n\tShall i launch tic-tac-toe(y/n)?";
+        char ch='x';
+        while(ch!='Y'&&ch!='y'&&ch!='n'&&ch!='N')
         {
-            int player = 1,i,choice;
-            char mark;
-            do
-            {
-                board();
-                player=(player%2)?1:2;
-                cout << "\tPLAYER " << player << " enter a number:  ";
-                cin >> choice;
-                mark=(player == 1) ? 'X' : 'O';
-                if (choice == 1 && square[1] == '1')
-                    square[1] = mark;
-                else if (choice == 2 && square[2] == '2')
-                    square[2] = mark;
-                else if (choice == 3 && square[3] == '3')
-                    square[3] = mark;
-                else if (choice == 4 && square[4] == '4')
-                    square[4] = mark;
-                else if (choice == 5 && square[5] == '5')
-                    square[5] = mark;
-                else if (choice == 6 && square[6] == '6')
-                    square[6] = mark;
-                else if (choice == 7 && square[7] == '7')
-                    square[7] = mark;
-                else if (choice == 8 && square[8] == '8')
-                    square[8] = mark;
-                else if (choice == 9 && square[9] == '9')
-                    square[9] = mark;
-                else
-                 {
-                    cout<<"------------------------------!!Invalid move !!------------------------------\n";
-                    player--;
-                    cout<<"--------------------------!!!Press y to continue!!!--------------------------\n";
-                    cin.ignore();
-                    cin.get();
-                }
-                i=checkwin();
-                player++;
-            }while(i==-1);
-            board();
-            if(i==1)
-                cout<<"\a-------------------------------||PLAYER "<<--player<<" WINS||------------------------------\n";
-            else
-                cout<<"\a--------------------------------||GAME DRAW||---------------------------------\n";
-            cin.ignore();
-            cout<<"-------------------------||Do you want to play again?||------------------------\n ";
             cout<<"\nOPTION  => ";
-            cin>>ch;
-        }
-        if(ch=='n'||ch=='N')
+             cin>>ch;            
+            while(ch=='Y'||ch=='y')
             {
-                cin.get();
-                cout<<"\nSPRITAN =>Some day i will learn to play too.\n\tMean while what shall i do next?";//add to answer if requested for other games
+                int player = 1,i,choice;
+                char mark;
+                do
+                {
+                    board();
+                    player=(player%2)?1:2;
+                    cout << "\tPLAYER " << player << " enter a number:  ";
+                    cin >> choice;
+                    mark=(player == 1) ? 'X' : 'O';
+                    if (choice == 1 && square[1] == '1')
+                    square[1] = mark;
+                    else if (choice == 2 && square[2] == '2')
+                        square[2] = mark;
+                    else if (choice == 3 && square[3] == '3')
+                        square[3] = mark;
+                    else if (choice == 4 && square[4] == '4')
+                        square[4] = mark;
+                    else if (choice == 5 && square[5] == '5')
+                        square[5] = mark;
+                    else if (choice == 6 && square[6] == '6')
+                        square[6] = mark;
+                    else if (choice == 7 && square[7] == '7')
+                        square[7] = mark;
+                    else if (choice == 8 && square[8] == '8')
+                        square[8] = mark;
+                    else if (choice == 9 && square[9] == '9')
+                        square[9] = mark;
+                    else
+                    {
+                        cout<<"------------------------------!!Invalid move !!------------------------------\n";
+                        player--;
+                        cout<<"--------------------------!!!Press y to continue!!!--------------------------\n";
+                        cin.ignore();
+                        cin.get();
+                    }
+                    i=checkwin();
+                    player++;
+                }while(i==-1);
+                board();
+                if(i==1)
+                    cout<<"\a-------------------------------||PLAYER "<<--player<<" WINS||------------------------------\n";
+                else
+                    cout<<"\a--------------------------------||GAME DRAW||---------------------------------\n";
+                cin.ignore();
+                cout<<"-------------------------||Do you want to play again?||------------------------\n ";
+                cout<<"\nOPTION  => ";
+                cin>>ch;
             }
+            if(ch=='n'||ch=='N')
+                {
+                    cin.get();
+                    cout<<"\nSPRITAN => Some day i will learn to play too.\n\tMean while what shall i do next?";//add to answer if requested for other games
+                }
+            else if(ch!='y'||ch!='Y')
+                cout<<"\nSPRITAN => Inaccurate input plese re-enter!!";
+        }
     }
-    int checkwin()
+int checkwin()
     {
         if      (square[1] == square[2] && square[2] == square[3])
             return 1;
@@ -350,7 +352,7 @@ int main()
         else
             return -1;
     }
-    void board()
+void board()
     {
 
         cout << "\n------------------------------||Tic Tac Toe||---------------------------------\n";
@@ -366,7 +368,7 @@ int main()
         cout << "\t  " << square[7] << "  |  " << square[8] << "  |  " << square[9] << endl;
         cout << "\t     |     |     " << endl << endl;
     }
-    void highlow()
+void highlow()
     {
       cout<<"\nSPRITAN => ";
       cout<<"You may play high-low...\n\tShall i launch high-low(y/n)?\n";
@@ -468,7 +470,7 @@ void extra(char Q[])
             fii.read((char *)&stud1, sizeof(stud1));
     	    if(!strcmp(Q,stud1.que))
     	    {
-    		    cout<<"\nSPRITAN => The answer is: ";
+    		    cout<<"\nSPRITAN => ";
     		    for(int i=0;stud1.answ[i]!='\0';i++)
     		    {
     		        cout<<stud1.answ[i];
@@ -503,8 +505,22 @@ void extra(char Q[])
             cin.get();
             if(ch=='n'||ch=='N')
             {
+                char option='n';
+                cout<<"\nSPRITAN => Do want to search the web to get your answer?(y/n)\n";
+                cout<<"OPTION  => ";
+                cin>>option;
+                if(option=='y'||option=='Y')
+                {
+                    char Ques[50];
+                    strcpy(Ques,"sr google ");
+                    strcat(Ques,Q);
+                    webser(Ques);
+                    start();
+                    cout<<"\nSPRITAN => Hope fully you got your answer.\n";
+                }
                 cout<<"\nSPRITAN => What shall i do next?";
-            }                
+                cin.get();
+            }
             if(ch=='y'||ch=='Y')
               {
                strcpy(stud1.que,Q);
@@ -518,8 +534,8 @@ void extra(char Q[])
         fio.close();
     }
 void sudoku()
-{
-      
+    {
+
       cout<<"\nSPRITAN => ";
       cout<<"You may play sudoku...\n\tShall i launch sudoku(y/n)?\n";
       cout<<"\nOPTION  => ";
@@ -548,9 +564,13 @@ void sudoku()
                     cout<<"\nSPRITAN => What should i do next?";
                 }
     }
-}
+    }
 void singsong()
-{
+    {
     system("aplay media.io_Crying_in_the_Club.wav");
     cin.get();
+    }
+void webser(char ip[])
+{
+    system(ip);
 }
