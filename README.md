@@ -1,8 +1,8 @@
 # SPRITAN
 Friendly Chatbot
-# requirement
+# Platform
   -> os: linux
-# addition downloads
+# Additional downloads/requirements
   -> Make sure you have firefox installed;
   -> please install nudoku game;
   -> dowload the wav file from the link below and save it in the same folder.
