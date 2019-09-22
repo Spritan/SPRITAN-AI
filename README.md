@@ -1,7 +1,7 @@
 # SPRITAN
-Friendly Chatbot
+Friendly Chatbot Ai with good integration with linux os.
 # Platform
-  -> os: linux
+  -> os: linux Desktop
 # Additional downloads/requirements
   -> Make sure you have firefox installed;
   -> please install nudoku game;
