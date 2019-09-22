@@ -11,12 +11,14 @@ void telljoke(char ar[]);                                                       
 void tictactoe();                                                               //game
 int checkwin();                                                                 //game1
 void board();                                                                   //game1
-void highlow();
+void highlow(); 
 void extra(char Q[]);                                                           //memory fuctionality
 void singsong();
 void sudoku();
 void webser(char ip[]);
 void start();
+void getwether();
+;                                                                 //sudo apt-get install espeak
 struct resource
     {
 	    char que[80];
@@ -43,7 +45,10 @@ int main()
                 ||(!strcmp(tinput,"sing a song."))||(!strcmp(tinput,"please sing me a song.")))
                 {
                     cout<<"\nSPRITAN => I am not very good in singing if i were to sing, you will have to\n";
-                    cout  <<"           have to hear the complete song do you agree?(y/n)\n";
+                    cout  <<"           hear the complete song do you agree?(y/n)\n";
+                    system("espeak \"I am not very good in singin \" ");
+                    system("espeak \" if i were to sing, you will have to\" ");
+                    system("espeak \"hear the complete song do you agree \" ");
                     while(flag==0)
                         {
                             cout<<"OPTION  =>";
@@ -51,25 +56,42 @@ int main()
                             if(ch=='y'||ch=='Y')
                             {
                                 singsong();
-                                cout<<"\nSPRITAN => Hopefully you are satisfied .\n\t  Mean while what shall i do next?\n";
+                                cout<<"\nSPRITAN => Hopefully you are satisfied .\n\tMean while what shall i do next?\n";
+                                system("espeak \"Hopefully you are satisfied \"");
+                                system("espeak \"Mean while what shall i do next \"");
                                 flag++;
                             }
                             else if(ch=='n'||ch=='N')
                             {
                                 cout<<"\nSPRITAN => I am sorry for not being able to live upto your hopes.\n";
+                                 system("espeak \"I am sorry for not being able to live upto your hopes \"");
+                                 cin.get();
                                 flag++;
                             }
                             else
+                            {
                                 cout<<"\nSPRITAN => Wrong option!! enter the option again\n";
+                                 system("espeak \"Wrong option!! \"");
+                                 system("espeak \" enter the option again\"");
+                            }
+                            
                         }
+                }
+            if((!strcmp(tinput,"how is the weather?")))
+                {
+                    system("espeak \"The weather record is\"");    
+                    getwether();  
+                        flag++;
                 }
             if((!strcmp(tinput,"who are you?"))||(!strcmp(tinput,"what are you?"))
                 ||(!strcmp(tinput,"who are you"))||(!strcmp(tinput,"what are you"))
                 ||(!strcmp(tinput,"what is this?"))||(!strcmp(tinput,"what is this")))
                 {
                   cout<<"\nSPRITAN => ";
-                  cout<<"I am SPRITAN 0.01 an chatbot(simple talking AI) created by Proyash.\n";
-                  cout<<"            I hope you will like me.\n";
+                  cout<<"I am SPRITAN 0.01 a chatbot(simple talking AI) created by Proyash.\n";
+                  system("espeak \"I am SPRITAN 0.01 a chatbot created by Proyash\"");
+                  cout<<"\tI hope you will like me.\n";
+                  system("espeak \"I hope you will like me\"");
                   flag++;
                 }
             if ((!strcmp(tinput,"hi"))||(!strcmp(tinput,"hi."))
@@ -82,10 +104,13 @@ int main()
                   switch(randam)
                     {
                         case 0:cout << "Hello there ";
+                                system("espeak \"Hello there\"");
                             break;
                         case 1:cout << "What's up, dude. ";
+                                system("espeak \"What's up, dude.\"");
                             break;
                         case 2:cout << "Yo Amigo. ";
+                                system("espeak \"Yo Amigo.\"");
                     }
                    cout<<endl;
                    flag++;
@@ -97,8 +122,11 @@ int main()
                     switch(randam)
                         {
                             case 0:cout << "I am good, how are you";
+                                        system("espeak \"I am good, how are you\"");
                                 break;
                             case 1:cout << "I am fine thank you,\n\t  By the way how are you?";
+                                        system("espeak \"I am fine thank you\"");
+                                        system("espeak \"By the way how are you?\"");
                                 break;
                         }
                     cout<<endl;
@@ -107,15 +135,18 @@ int main()
             if (!strcmp(tinput,"i am fine")||!strcmp(tinput,"i am fine too")
                 ||!strcmp(tinput,"fine fine")||!strcmp(tinput,"good"))
                 {
-                    randam=rand()%3;
+                    randam=rand()%2;
                     cout<<"\nSPRITAN => ";
                     switch(randam)
                         {
                             case 0:cout << "Thats good to know, command me something";
+                                        system("espeak \"Thats\"");
+                                        system("espeak \"good to know\"");
+                                        system("espeak \"command me something\"");
                                     break;
-                            case 1:cout << "Ummm, good but lets get to bussiness";
-                                    break;
-                            case 2:cout << "Pleasured to know, now what can i do for you.";
+                            case 1:cout << "Pleasured to know, now what can i do for you.";
+                                        system("espeak \"Pleasured to know\"");
+                                        system("espeak \"now what can i do for you\"");
                                     break;
                         }
                      cout<<endl;
@@ -125,6 +156,7 @@ int main()
                 {
                     cout<<"\nSPRITAN => ";
                     cout<<"Goodbye, take care.....\n";
+                    system("espeak \"Goodbye, take care\"");
                     exit(1);
                 }
             if (!strcmp(tinput,"tell a joke")||!strcmp(tinput,"tell me a joke")||!strcmp(tinput,"a joke please"))
@@ -187,15 +219,19 @@ int main()
                    // Using localtime()
                      ti = localtime(&tt);
                      cout << "Current Day, Date and Time is = "<< asctime(ti);
+                     system("espeak \"Current Day\"");
+                     system("espeak \"Date and Time is\"");
                      cout<<endl;
                      flag++;
                }
             if (!strcmp(tinput,"search the web")||!strcmp(tinput,"open the browser")
-                ||!strcmp(tinput,"open firefox")||!strcmp(tinput,"open firefox"))
+                ||!strcmp(tinput,"open firefox")||!strcmp(tinput,"open firefox")
+                ||!strcmp(tinput,"browse the web"))
                 {
                     system("firefox");
                     start();
                     cout<<"\nSPRITAN => Brower(firefox) is closed.\n";
+                    system("espeak \"Brower is closed\"");
                     flag++;
                 }
             if(flag==0)
@@ -209,13 +245,9 @@ int main()
 void start()
     {
    system("clear");
-   cout << "\t\t\t\t###### ###### ###### ###### ######   ###   ##    ##\n";
-   cout << "\t\t\t\t##     ##  ## ##  ##   ##     ##    ## ##  ###   ##\n";
-   cout << "\t\t\t\t###### ###### ######   ##     ##   ####### ## ## ##\n";
-   cout << "\t\t\t\t    ## ##     ## ##    ##     ##   ##   ## ##   ###\n";
-   cout << "\t\t\t\t###### ##     ##  ## ######   ##   ##   ## ##    ##\n";
-   cout << "\nHello, This is SPRITAN made by Proyash" << endl ;
-   cout << "Feel free to say hi." << endl ;
+   system("toilet -f mono12 -F metal SPRITAN");                                                        //sudo apt-get install toilet
+   cout << "=> Hello, This is SPRITAN a chatbot AI made by Proyash" << endl ;
+   cout << "=> Feel free to say hi or command to do something." << endl ;
    cout << "-------------------------------------------------------------------------------------\n";
     }
 void telljoke(char ar[])
@@ -263,6 +295,9 @@ void tictactoe()
     {
         cout<<"\nSPRITAN => ";
         cout<<"You may play tic-tac-toe PvP...\n\tShall i launch tic-tac-toe(y/n)?";
+        system("espeak \"You may play tic-tac-toe\"");
+        system("espeak \"Shall i launch\"");
+        system("espeak \"tic-tac-toe\"");
         char ch='x';
         while(ch!='Y'&&ch!='y'&&ch!='n'&&ch!='N')
         {
@@ -321,10 +356,13 @@ void tictactoe()
             if(ch=='n'||ch=='N')
                 {
                     cin.get();
-                    cout<<"\nSPRITAN => Some day i will learn to play too.\n\tMean while what shall i do next?";//add to answer if requested for other games
+                    cout<<"\nSPRITAN => Some day i will learn to play too.\n\tMeanwhile what shall i do next?";//add to answer if requested for other games
+                    system("espeak \"Some day i will learn\"");
+                    system("espeak \"to play too Meanwhile\"");
+                    system("espeak \"what shall i do next\"");
                 }
             else if(ch!='y'||ch!='Y')
-                cout<<"\nSPRITAN => Inaccurate input plese re-enter!!";
+                cout<<"\nGAME    => Inaccurate input plese re-enter!!";
         }
     }
 int checkwin()
@@ -372,6 +410,8 @@ void highlow()
     {
       cout<<"\nSPRITAN => ";
       cout<<"You may play high-low...\n\tShall i launch high-low(y/n)?\n";
+      system("espeak \"You may play high-low\"");
+      system("espeak \" Shall i launch high-low\"");
       cout<<"\nOPTION  => ";
       char ch='y';
       cin>>ch;
@@ -445,13 +485,16 @@ void highlow()
         if(ch=='n'||ch=='N')
             {
                 cin.get();
-                cout<<"\nSPRITAN => Hopefully you are satisfied .\n\tMean while what shall i do next?";
+                cout<<"\nSPRITAN => Hopefully you are satisfied .\n\tMeanwhile what shall i do next?";
+                 system("espeak \"Hopefully you are satisfied\"");
+                 system("espeak \"Meanwhile what shall i do next\"");
                 return;
             }
         if(ans=='n'||ans=='N')
                 {
                     cin.get();
                     cout<<"\nSPRITAN => What should i do next?";
+                    system("espeak \"Meanwhile what should i do next\"");
                 }
     }
 void extra(char Q[])
@@ -463,6 +506,8 @@ void extra(char Q[])
       if(!fii)
       {
           cout<<"\nSPRITAN => Sorry, i am not feeling well i have to get rest..";
+          system("espeak \"Sorry\"");
+          system("espeak \"i am not feeling well i have to get rest\"");
           exit(1);
       }
       while(!fii.eof())
@@ -475,7 +520,7 @@ void extra(char Q[])
     		    {
     		        cout<<stud1.answ[i];
     		    }
-    		    cout<<endl;
+    		    //cout<<endl;
     		    found++;
     		    break;
     	    }
@@ -485,6 +530,8 @@ void extra(char Q[])
         if(!fio)
         {
             cout<<"\nSPRITAN => Sorry, i am not feeling well i have to get rest..";
+            system("espeak \"Sorry\"");
+            system("espeak \"i am not feeling well i have to get rest\"");
             exit(1);
         }
         fio.seekp(0);
@@ -499,7 +546,7 @@ void extra(char Q[])
                 case 1:cout<<"Opps, never encountered that before\n";
                         break;
             }
-            cout<<"\nSPRITAN => Would you like to tell how i should have answered ?(y/n)!";
+            cout<<"\nSPRITAN => Would you like to tell how i should have answered ?(y/n)";
     	    cout<<"\nOPTION  => ";
     	    cin>>ch;
             cin.get();
@@ -524,11 +571,11 @@ void extra(char Q[])
             if(ch=='y'||ch=='Y')
               {
                strcpy(stud1.que,Q);
-               cout<<"\nSPRITAN => Please tell me the answer   :\n";
+               cout<<"\nSPRITAN => Please tell me the answer...\n";
                cout<<"\nYou     => ";
                cin.getline(stud1.answ,80);
                fio.write((char *)&stud1, sizeof(stud1));
-               cout<<"\nSPRITAN => Thanks for teaching me....";
+               cout<<"\nSPRITAN => Thanks for teaching me...";
              }
         }
         fio.close();
@@ -547,9 +594,9 @@ void sudoku()
           do
           {
               system("nudoku");
-              cout<<"Game    => ";
+              cout<<"\nGame    => ";
               cout<<"Want to play it again? (y/n)\n";
-              cout<<"\nOPTION  => ";
+              cout<<"OPTION  => ";
               cin>>ans;
           }while(ans=='y' || ans=='Y');
        if(ch=='n'||ch=='N')
@@ -571,6 +618,11 @@ void singsong()
     cin.get();
     }
 void webser(char ip[])
-{
+    {
     system(ip);
-}
+    }
+void getwether()
+    {
+    system("curl wttr.in");
+    }
+
