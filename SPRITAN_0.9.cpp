@@ -18,15 +18,16 @@ void sudoku();
 void webser(char ip[]);
 void start();
 void getwether();
-;                                                                 //sudo apt-get install espeak
+//void launchapp(char ch);
+//void sayfunny();                                                              //sudo apt-get install funny
 struct resource
     {
 	    char que[80];
-	    char answ[40];
+	    char answ[80];
     }stud1;
 int main()
     {
-        char input[60],tinput[60];
+        char input[80],tinput[80];
         char ch;
         int i=0,randam=1,flag=0;
         start();
@@ -99,7 +100,7 @@ int main()
                 ||(!strcmp(tinput,"hello spritan"))||(!strcmp(tinput,"hello spritan."))
                 ||(!strcmp(tinput,"hello"))||(!strcmp(tinput,"hellow")))
               {
-                  randam=rand()%1;
+                  randam=rand()%3;
                   cout<<"\nSPRITAN => ";
                   switch(randam)
                     {
@@ -167,16 +168,33 @@ int main()
                }
             if (!strcmp(tinput,"play a game")||!strcmp(tinput,"launch a game"))
                 {
-                    randam=rand()%3;
+                     int k=0;
+                     while(k==0)
+                     {
+                     cout<<"\nSPRITAN =>    Which game would you like to play select the number:";
+                     system("espeak \"Which game would you like to play select the number\"");
+                     cout<<"\n           [ ]-------------------------------------------------[ ]";
+                     cout<<"\n            | 1. Tic-Tac-Toe                                    |";
+                     cout<<"\n            | (The classic)                                     |";
+                     cout<<"\n            | 2. High-low                                       |";
+                     cout<<"\n            | (Number guessing game)                            |";
+                     cout<<"\n            | 3. Sudoku                                         |";
+                     cout<<"\n            | (No one needs its description)                    |";
+                     cout<<"\n           [ ]-------------------------------------------------[ ]";
+                     cout<<"\nOPTION => ";
+                     cin >>randam;
                     switch(randam)
                           {
-                            case 0:tictactoe();
+                            case 1:tictactoe();k++;
                                   break;
-                            case 1:highlow();
+                            case 2:highlow();k++;
                                   break;
-                            case 2:sudoku();
+                            case 3:sudoku();k++;
                                   break;
+                            default:cout<<"\nWrong input enter again.";
+                                    system("espeak \" wrong input enter again \"");
                           }
+                     }
                     cout<<endl;
                     flag++;
                 }
@@ -201,6 +219,16 @@ int main()
                   cout<<endl;
                   continue;
                 }
+        /*    if(!strcmp(tinput,"play a desktop game"))
+                {
+                    launchapp('g');
+                    start();
+                    cout<<"\nSPRITAN => What shall i do for you next?\n";
+                    system("espeak \"What shall i do for you next\"");
+                   
+                    flag++;
+                    
+                }*/
             if (!strcmp(tinput,"what time is it")||!strcmp(tinput,"what is the time")
                 ||!strcmp(tinput,"what time is it?")||!strcmp(tinput,"what is the time?")
                 ||!strcmp(tinput,"tell me the time")||!strcmp(input,"tell me the time?")
@@ -245,7 +273,7 @@ int main()
 void start()
     {
    system("clear");
-   system("toilet -f mono12 -F metal SPRITAN");                                                        //sudo apt-get install toilet
+   system("toilet -f mono12 -F metal    SPRITAN");                                                        //sudo apt-get install toilet
    cout << "=> Hello, This is SPRITAN a chatbot AI made by Proyash" << endl ;
    cout << "=> Feel free to say hi or command to do something." << endl ;
    cout << "-------------------------------------------------------------------------------------\n";
@@ -253,27 +281,40 @@ void start()
 void telljoke(char ar[])
     {
        int num=0;
-       num=rand()%3;
+       num=rand()%2;
        cout<<"\nSPRITAN => ";
        switch(num)
         {
             case 0:{
-                    cout<<"Teacher      : 'Anyone who thinks he's stupid may stand up!'\
-                    \n\t\t   *Nobody stands up*\
-                    \n\t   Teacher      : 'Im sure there are some stupid students over here!!'\
-                    \n\t\t   *Little Johnny stands up*\
-                    \n\t   Teacher      : 'Ohh, Johnny you think you're stupid?'\
-                    \n\t   Little Johnny: 'No... i just feel bad that you're standing alone...'";
+                    cout<<"Teacher      : 'Anyone who thinks he's stupid may stand up!'";
+                    system("espeak \"Teacher      Anyone who thinks he's stupid may stand up\"");
+                    cout<<"\n\t\t   *Nobody stands up*";
+                    system("espeak \"Nobody stands up\"");
+                    cout<<"\n\t   Teacher      : 'Im sure there are some stupid students over here!!'";
+                    system("espeak \"Teacher      Im sure there are some stupid students over here\"");
+                    cout<<"\n\t\t   *Little Johnny stands up*";
+                    system("espeak \"Little Johnny stands up\"");
+                    cout<<"\n\t   Teacher      : 'Ohh, Johnny you think you're stupid?'";
+                    system("espeak \"Teacher      Ohh, Johnny you think you're stupid\"");
+                    cout<<"\n\t   Little Johnny: 'No... i just feel bad that you're standing alone...'";
+                    system("espeak \"Little Johnny  No i just feel bad that you're standing alone\"");
                     break;
                   }
             case 1:{
                     cout<<"Three drunken guys entered a taxi. The taxi driver knew that they\n";
+                    system("espeak \"Three drunken guys entered a taxi. The taxi driver knew that they\"");
                     cout<<"\t   were drunk so he started the engine and turned it off again. Then\n";
+                    system("espeak \"were drunk so he started the engine and turned it off again. Then\"");
                     cout<<"\t   said,  'We have reached your destination' .  The 1st guy gave him \n";
+                    system("espeak \"said,  'We have reached your destination' .  The 1st guy gave him \"");
                     cout<<"\t   money  and the 2nd guy said  'Thank you'. The 3rd guy slapped the \n";
+                    system("espeak \"money  and the 2nd guy said  'Thank you'. The 3rd guy slapped the \"");
                     cout<<"\t   driver.The driver was shocked thinking the 3rd drunk knew what he\n";
+                    system("espeak \"driver.The driver was shocked thinking the 3rd drunk knew what he\"");
                     cout<<"\t   did. But then he asked 'What was that for?'  The 3rd guy replied, \n";
+                    system("espeak \"did. But then he asked 'What was that for?'  The 3rd guy replied, \"");
                     cout<<"\t   'Control your speed next time, you nearly killed us!'";
+                    system("espeak \"Control your speed next time, you nearly killed us\"");
                     break;
                   }
             case 2:{
@@ -515,11 +556,16 @@ void extra(char Q[])
             fii.read((char *)&stud1, sizeof(stud1));
     	    if(!strcmp(Q,stud1.que))
     	    {
-    		    cout<<"\nSPRITAN => ";
+    		    char we[80];
+                strcpy(we,"espeak \"");
+                strcat(we,stud1.answ);
+                strcat(we,"\"");
+                cout<<"\nSPRITAN => ";
     		    for(int i=0;stud1.answ[i]!='\0';i++)
     		    {
-    		        cout<<stud1.answ[i];
+                    cout<<stud1.answ[i];
     		    }
+    		    system(we);
     		    //cout<<endl;
     		    found++;
     		    break;
@@ -542,11 +588,14 @@ void extra(char Q[])
             switch(randam)
             {
                 case 0:cout<<"I don't yet know that\n";
+                        system("espeak \"I don't yet know that\"");
                         break;
-                case 1:cout<<"Opps, never encountered that before\n";
+                case 1:cout<<"Oops, never encountered that before\n";
+                        system("espeak \"Oops, never encountered that before\"");
                         break;
             }
             cout<<"\nSPRITAN => Would you like to tell how i should have answered ?(y/n)";
+            system("espeak \"Would you like to tell how i should have answered\"");
     	    cout<<"\nOPTION  => ";
     	    cin>>ch;
             cin.get();
@@ -554,6 +603,7 @@ void extra(char Q[])
             {
                 char option='n';
                 cout<<"\nSPRITAN => Do want to search the web to get your answer?(y/n)\n";
+                system("espeak \"Do want to search the web to get your answer\"");
                 cout<<"OPTION  => ";
                 cin>>option;
                 if(option=='y'||option=='Y')
@@ -563,19 +613,23 @@ void extra(char Q[])
                     strcat(Ques,Q);
                     webser(Ques);
                     start();
-                    cout<<"\nSPRITAN => Hope fully you got your answer.\n";
+                    cout<<"\nSPRITAN => Hopefully you got your answer.";
+                    system("espeak \"Hopefully you got your answer\"");
                 }
                 cout<<"\nSPRITAN => What shall i do next?";
+                system("espeak \"What shall i do next\"");
                 cin.get();
             }
             if(ch=='y'||ch=='Y')
               {
                strcpy(stud1.que,Q);
                cout<<"\nSPRITAN => Please tell me the answer...\n";
+               system("espeak \"Please tell me the answer\"");
                cout<<"\nYou     => ";
                cin.getline(stud1.answ,80);
                fio.write((char *)&stud1, sizeof(stud1));
                cout<<"\nSPRITAN => Thanks for teaching me...";
+               system("espeak \"Thanks for teaching me\"");
              }
         }
         fio.close();
@@ -585,6 +639,8 @@ void sudoku()
 
       cout<<"\nSPRITAN => ";
       cout<<"You may play sudoku...\n\tShall i launch sudoku(y/n)?\n";
+      system("espeak \"You may play sudoku\"");
+      system("espeak \"Shall i launch sudoku\"");
       cout<<"\nOPTION  => ";
       char ch='y';
       cin>>ch;
@@ -602,13 +658,16 @@ void sudoku()
        if(ch=='n'||ch=='N')
             {
                 cin.get();
-                cout<<"\nSPRITAN => Hopefully you are satisfied .\n\tMean while what shall i do next?";
+                cout<<"\nSPRITAN => Hopefully you are satisfied .\n\tMeanwhile what shall i do next?";
+                system("espeak \"Hopefully you are satisfied\"");
+                system("espeak \"Meanwhile what shall i do next\"");
                 return;
             }
        if(ans=='n'||ans=='N')
                 {
                     cin.get();
                     cout<<"\nSPRITAN => What should i do next?";
+                    system("espeak \" what should i do next\"");
                 }
     }
     }
@@ -625,4 +684,50 @@ void getwether()
     {
     system("curl wttr.in");
     }
-
+/*void launchapp(char ch)
+    {
+        int in;
+        switch(ch)
+        {
+            case 'G':
+            case 'g':int k=0;
+                    while(k==0)
+                    {
+                     cout<<"\nSPRITAN =>    All available games on your system are shown below :";
+                     cout<<"\n              Which game would you like to play select the number:";
+                     system("espeak \"All available games on your system are shown below: \"");
+                     system("espeak \"Which game would you like to play select the number\"");
+                     cout<<"\n           [ ]-------------------------------------------------[ ]";
+                     cout<<"\n            | 1. Xonotic                                        |";
+                     cout<<"\n            | (online, multiplayer sharp shooter game)          |";
+                     cout<<"\n            | 2. 0 A.D.                                         |";
+                     cout<<"\n            | (Strategy games,involing grestness of the old age |";
+                     cout<<"\n            | 3. Runescape(new)                                 |";
+                     cout<<"\n            | (One of the greatest MMORPG ever)                 |";
+                     cout<<"\n            | 4. Minetest                                       |";
+                     cout<<"\n            | (Not a minecraft clone but better than it )       |";
+                     cout<<"\n           [ ]-------------------------------------------------[ ]";
+                     cout<<"\nOPTION  => ";
+                     cin>>in;
+                        switch(in)
+                        {
+                            case 1:system("xonotic");
+                                    k++;
+                                    break;
+                            case 2:system("0ad");
+                                    k++;
+                                    break;
+                            case 3:system("runescape");
+                                    k++;
+                                    break;
+                            case 4:system("minetest");
+                                    k++;
+                                    break;
+                            default:cout<<"\nSPRITAN => Wrong input enter again.";
+                                    system("espeak \"Wrong input enter again \"");
+                        }
+                    }
+                    cin.get();
+                     break;
+        }
+    }*/
