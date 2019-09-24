@@ -4,7 +4,11 @@ Friendly Chatbot Ai with good integration with linux os.
   -> os: linux Desktop
 # Additional downloads/requirements
   -> Make sure you have firefox installed;
+      (+)for debian/ubuntu derivatives dowlnoad by using the command
+       $ sudo apt install firefox
   -> please install nudoku game;
+      (+)for debian/ubuntu derivatives dowlnoad by using the command
+       $ sudo apt install nudoku
   -> dowload the wav file from the link below and save it in the same folder.
      https://drive.google.com/open?id=1WS_mHmiYiQKygn7iJG9yNs2z3HkRq33m
   -> download sursurf
