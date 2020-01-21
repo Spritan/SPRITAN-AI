@@ -3,7 +3,6 @@ Friendly Chatbot Ai with good integration with linux os.
 # Platform
   -> os: linux Desktop
 # Additional downloads/requirements
-\n
   -> Make sure you have firefox installed;
       (+)for debian/ubuntu derivatives dowlnoad by using the command
        $ sudo apt install firefox
