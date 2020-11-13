@@ -7,12 +7,14 @@ Friendly Chatbot Ai with good integration with linux os.
 - Make sure you have firefox installed;
 
   > for debian/ubuntu derivatives dowlnoad by using the command
-  > $ sudo apt install firefox
+  >
+  > > $ sudo apt install firefox
 
 - please install nudoku game;
 
   > for debian/ubuntu derivatives dowlnoad by using the command
-  >        $ sudo apt install nudoku
+  >
+  > > $ sudo apt install nudoku
 
 - dowload the wav file from the link below and save it in the same folder.
 
@@ -21,14 +23,17 @@ Friendly Chatbot Ai with good integration with linux os.
 - download sursurf
 
   > for debian/ubuntu derivatives dowl noad by using the command
-  >        $ sudo apt-get install surfraw surfraw-extra
+  >
+  > > $ sudo apt-get install surfraw surfraw-extra
 
--  download toilet
+- download toilet
 
   > for debian/ubuntu derivatives download by using the command
-  >        $ sudo apt-get install toilet
+  >
+  > > $ sudo apt-get install toilet
 
 -  download espeak
 
   > for debian/ubuntu derivatives download by using the command
-  >        $ sudo apt-get install espeak
+  >
+  > > $ sudo apt-get install espeak
